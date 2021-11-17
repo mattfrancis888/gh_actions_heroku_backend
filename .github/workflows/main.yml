@@ -9,14 +9,14 @@ jobs:
     build:
         runs-on: ubuntu-latest
         steps:
+            - name: install dependancies
+              run: npm install
+            - name: convert typescript to javascript
+              run: npm run convert
             - uses: actions/checkout@v2
             - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
               with:
                   heroku_api_key: ${{secrets.HEROKU_API_KEY}}
                   heroku_app_name: "gh-actions-heroku" #Must be unique in Heroku
                   heroku_email: "mattfrancis888@gmail.com"
-            - name: install dependancies
-              run: npm install
-            - name: convert typescript to javascript
-              run: npm run convert
             
