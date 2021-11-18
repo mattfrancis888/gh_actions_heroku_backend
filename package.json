@@ -5,7 +5,7 @@
     "main": "backend-build/index.js",
     "scripts": {
         "tsc": "tsc",
-        "convert:build": "tsc -w",
+        "convert:build": "tsc",
         "convert:run": "nodemon backend-build/index.js",
         "convert": "concurrently npm:convert:*",
         "start": "node backend-build/index.js",
