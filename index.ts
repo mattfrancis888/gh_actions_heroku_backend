@@ -1,11 +1,11 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
-import food from "./routes/food";
+
 if (process.env.NODE_ENV !== "production") {
     dotenv.config();
 }
-
+import food from "./routes/food";
 const app = express();
 // middleware for parsing bodies from URL
 app.use(express.urlencoded({ extended: true }));

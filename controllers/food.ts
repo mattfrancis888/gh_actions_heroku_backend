@@ -1,17 +1,17 @@
 import { Request, Response, NextFunction, response } from "express";
+import pool from "../databasePool";
 export const testMe = (req: Request, res: Response) => {
     res.sendStatus(200);
 };
 export const getMyFood = async (req: Request, res: Response) => {
-    // try {
-    //     const response = await pool.query(`SELECT * from creation`);
+    try {
+        const response = await pool.query(`SELECT * from food`);
 
-    //     res.send({ result: response.rows });
-    // } catch (error) {
-    //     console.log(error);
-    //     return res.sendStatus(INTERNAL_SERVER_ERROR_STATUS);
-    // }
-    res.send(200);
+        res.send(response.rows);
+    } catch (error) {
+        console.log("getMyFood", error);
+        return res.sendStatus(500);
+    }
 };
 
 export const insertMyFood = async (
@@ -19,16 +19,14 @@ export const insertMyFood = async (
     res: Response,
     next: NextFunction
 ) => {
-    // try {
-    //     await pool.query("BEGIN");
-    //     const response = await pool.query(
-    //         `insert into test(test1) values('test1')`
-    //     );
-    //     next();
-    // } catch (error) {
-    //     next(error);
-    //     console.log(error);
-    //     return res.sendStatus(INTERNAL_SERVER_ERROR_STATUS);
-    // }
-    res.send(200);
+    try {
+        const response = await pool.query(
+            `insert into food(food_name) values('burger')`
+        );
+        res.send(response.rows);
+    } catch (error) {
+        next(error);
+        console.log("insertMyFood", error);
+        return res.sendStatus(494);
+    }
 };
