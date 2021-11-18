@@ -21,7 +21,7 @@ export const insertMyFood = async (
 ) => {
     try {
         const response = await pool.query(
-            `insert into food(food_name) values('burger')`
+            `insert into food(food_name) values('burger') RETURNING * `
         );
         res.send(response.rows);
     } catch (error) {
