@@ -5,10 +5,10 @@
     "main": "backend-build/index.js",
     "scripts": {
         "tsc": "tsc",
-        "convert:build-dev": "tsc -w",
+        "convert-dev:build": "tsc -w",
         "convert:build": "tsc",
-        "convert:run": "nodemon backend-build/index.js",
-        "convert": "concurrently npm:convert:*",
+        "convert-dev:run": "nodemon backend-build/index.js",
+        "convert": "concurrently npm:convert-dev:*",
         "start": "node backend-build/index.js",
         "test": "echo \"Error: no test specified\" && exit 1",
         "postinstall": "npm run tsc"
