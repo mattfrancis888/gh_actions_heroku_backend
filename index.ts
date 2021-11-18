@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
+import food from "./routes/food";
 if (process.env.NODE_ENV !== "production") {
     dotenv.config();
 }
@@ -15,6 +16,7 @@ console.log("NODE ENV", process.env.privateKey);
 app.use("/api/test", (req, res) => {
     res.send("hi");
 });
+app.use("/api", food);
 
 const port = process.env.PORT || 5000;
 
