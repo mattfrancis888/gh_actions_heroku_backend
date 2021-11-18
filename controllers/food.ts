@@ -1,6 +1,4 @@
 import { Request, Response, NextFunction, response } from "express";
-import pool from "../databasePool";
-import { FORBIDDEN_STATUS, INTERNAL_SERVER_ERROR_STATUS } from "../constants";
 export const testMe = (req: Request, res: Response) => {
     res.sendStatus(200);
 };
