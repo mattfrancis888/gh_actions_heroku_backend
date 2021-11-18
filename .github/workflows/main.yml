@@ -15,8 +15,9 @@ jobs:
                   heroku_api_key: ${{secrets.HEROKU_API_KEY}}
                   heroku_app_name: "gh-actions-heroku-backend" #Must be unique in Heroku
                   heroku_email: "mattfrancis888@gmail.com"
-            - name: install dependancies
-              run: npm install
-            - name: convert typescript to javascript
-              run: npm run convert
+            - name: install dependencies & convert typescript to javascript
+              run: |
+                npm install
+                npm run convert
+   
             
